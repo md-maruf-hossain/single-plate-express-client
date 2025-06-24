@@ -11,8 +11,8 @@ const Contact = () => {
             <h2 className="text-3xl font-semibold tracking-wide">Contact Support</h2>
             <p className="text-gray-800">Are you an existing Zerocater customer who needs help? Reach out and we’ll get back to you.</p>
           </div>
-          <button className="w-full border-2 border-green-500 text-green-500 py-3 rounded-md font-semibold hover:bg-green-100 transition">Text Us: (218) 295-4518</button>
-          <button className="w-full border-2 border-green-500 text-green-500 py-3 rounded-md font-semibold hover:bg-green-100 transition">Call Us: (844) 229-9376</button>
+          <button className="w-full border-2 border-green-500 text-green-500 py-3 rounded-md font-semibold hover:bg-green-100 transition">Text Us: +1 (929) 569-9125</button>
+          <button className="w-full border-2 border-green-500 text-green-500 py-3 rounded-md font-semibold hover:bg-green-100 transition">Call Us: +1 (929) 569-9125</button>
         </div>
       </div>
 
@@ -24,8 +24,8 @@ const Contact = () => {
             <h2 className="text-3xl font-semibold tracking-wide">Become a Customer</h2>
             <p className="text-gray-800">Interested in revolutionizing your company meal program? Contact us to learn what we can do for you.</p>
           </div>
-          <button className="w-full border-2 border-green-500 text-green-500 py-3 rounded-md font-semibold hover:bg-green-100 transition">Text Us: (218) 295-4518</button>
-          <button className="w-full border-2 border-green-500 text-green-500 py-3 rounded-md font-semibold hover:bg-green-100 transition">Call Us: (844) 229-9376</button>
+          <button className="w-full border-2 border-green-500 text-green-500 py-3 rounded-md font-semibold hover:bg-green-100 transition">Text Us:+1 (929) 569-9125</button>
+          <button className="w-full border-2 border-green-500 text-green-500 py-3 rounded-md font-semibold hover:bg-green-100 transition">Call Us:+1 (929) 569-9125</button>
         </div>
       </div>
     </div>
