@@ -74,7 +74,6 @@ const MealPlanDetails = () => {
       }
 
       const data = await response.json();
-      console.log("Success:", data);
       toast.success("Added to cart successfully!");
     } catch (error) {
       console.error("Error:", error);

@@ -36,7 +36,6 @@ const LoginPage = () => {
     logIn(email, password)
       .then((result) => {
         const user = result.user;
-        // console.log(user);
         if (user) {
           router.push("/");
           toast.success("Login successful");

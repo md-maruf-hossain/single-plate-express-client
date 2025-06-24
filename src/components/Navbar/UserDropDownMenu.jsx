@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 import Link from "next/link";
 
 const UserDropDownMenu = ({ user, logout }) => {
-  // console.log(user);
   const handleLogout = () => {
     logout()
       .then(() => {

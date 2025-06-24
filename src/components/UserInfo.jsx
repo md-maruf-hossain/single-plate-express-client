@@ -5,7 +5,6 @@ import React from 'react';
 
 const UserInfo = () => {
     const session = useSession();
-    // console.log(session);
     return (
         <div>
             {

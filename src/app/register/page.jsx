@@ -82,12 +82,10 @@ export default function RegisterPage() {
           const user = result.user;
           if (user) {
             toast.success("User registered successfully! Please Login to access your account");
-            // console.log("User registered:", formData);
             handleUpdateUser(formData.name); // update user profile with name
             router.push("/"); // redirect to login page or home page
             loading;
           }
-          // console.log(user);
         });
 
         // maybe redirect or clear form here
