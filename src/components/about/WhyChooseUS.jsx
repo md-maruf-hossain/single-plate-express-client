@@ -7,7 +7,7 @@ const WhyChooseUS = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("/api/whyChooseUs.json") // Change to .json
+    fetch("https://single-plate-express-backend.vercel.app/why-choose-us") // Change to .json
       .then((res) => {
         if (!res.ok) throw new Error("Failed to fetch features");
         return res.json();

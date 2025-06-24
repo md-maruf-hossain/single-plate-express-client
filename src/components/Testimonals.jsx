@@ -10,7 +10,7 @@ const Testimonals = () => {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const response = await fetch("/api/testimonials.json");
+        const response = await fetch("https://single-plate-express-backend.vercel.app/testimonials");
         if (!response.ok) throw new Error("Failed to fetch testimonials");
         const data = await response.json();
         setTestimonials(data);
