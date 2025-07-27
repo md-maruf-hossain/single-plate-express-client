@@ -59,7 +59,7 @@ const page = () => {
       <div className="container mx-auto p-4 h-screen flex flex-col items-center justify-center">
         <h1 className="text-2xl font-bold text-center mb-4">Select Your ZIP Code</h1>
         <div className="max-w-sm mx-auto">
-          <select className="w-full p-2 border rounded-md shadow-md mb-4" value={selectedZip} onChange={handleZipChange}>
+          <select className="w-full p-2 border rounded-md shadow-md mb-4 border-green-700 cursor-pointer" value={selectedZip} onChange={handleZipChange}>
             <option value="">Select ZIP Code</option>
             {zipCodes.map((zipCode) => (
               <option key={zipCode.zip} value={zipCode.zip}>
@@ -75,11 +75,12 @@ const page = () => {
           )}
 
           <div className="flex justify-center">
-            <button onClick={handleNextPage} className="bg-black text-white px-4 py-2 rounded-md shadow-md focus:outline-none cursor-pointer" disabled={!selectedZip}>
+            <button onClick={handleNextPage} className="bg-green-700 hover:bg-green-800 text-white px-4 py-2 rounded-md shadow-md focus:outline-none cursor-pointer" disabled={!selectedZip}>
               Go to Order Food
             </button>
           </div>
         </div>
+          <p className="text-center font-semibold mt-5 text-green-600">We are currently offering our catering service exclusively in the Queens area. <br/> Our service will be expanding to other areas soon. Thank you for your interest and patience!</p>
       </div>
       <UpButton />
     </PrivateRoute>
