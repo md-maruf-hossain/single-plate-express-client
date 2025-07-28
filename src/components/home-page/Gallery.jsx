@@ -21,15 +21,15 @@ const Gallery = () => {
               <Image alt="gallery" width="501" height="301" className="w-full object-cover h-full object-center block rounded-lg" src="/images/dish-2.jpg" />
             </div>
             <div className="md:p-2 p-1 w-full">
-              <Image alt="gallery" width="600" height="300" className="w-full object-cover h-full object-center block rounded-lg" src="/images/dish-5.jpg" />
+              <Image alt="gallery" width="600" height="300" className="w-full object-cover h-full object-center block rounded-lg" src="/images/dish-3.jpg" />
             </div>
           </div>
           <div className="flex flex-wrap w-1/2">
             <div className="md:p-2 p-1 w-full">
-              <Image alt="gallery" width="601" height="361" className="w-full object-cover h-full object-center block rounded-lg" src="/images/dish-3.jpg" />
+              <Image alt="gallery" width="601" height="361" className="w-full object-cover h-full object-center block rounded-lg" src="/images/dish-4.jpg" />
             </div>
             <div className="md:p-2 p-1 w-1/2">
-              <Image alt="gallery" width="502" height="302" className="w-full object-cover h-full object-center block rounded-lg" src="/images/dish-4.jpg" />
+              <Image alt="gallery" width="502" height="302" className="w-full object-cover h-full object-center block rounded-lg" src="/images/dish-5.jpg" />
             </div>
             <div className="md:p-2 p-1 w-1/2">
               <Image alt="gallery" width="503" height="303" className="w-full object-cover h-full object-center block rounded-lg" src="/images/dish-6.jpg" />
