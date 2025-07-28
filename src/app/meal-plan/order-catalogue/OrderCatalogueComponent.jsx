@@ -26,7 +26,7 @@ const OrderCatalogueComponent = () => {
 
   return (
     <PrivateRoute>
-      <section className="py-20 bg-white text-black h-screen">
+      <section className="py-20 bg-white text-black">
         <div className="container px-4 mx-auto">
           <div className="max-w-2xl mx-auto mb-16 text-center">
             <span className="font-bold tracking-wider uppercase text-gray-400">Meal Plans</span>
@@ -43,7 +43,7 @@ const OrderCatalogueComponent = () => {
                 <div className="mt-auto">
                   <Link
                     href={`/meal-plan/order-catalogue/${plan._id}`} // Use dynamic route here
-                    className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded bg-black text-white w-full hover:bg-gray-800 transition-colors"
+                    className="inline-block px-5 py-3 font-semibold tracking-wider text-center rounded bg-green-700 text-white w-full hover:bg-green-800 transition-colors"
                   >
                     Get Started
                   </Link>

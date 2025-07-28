@@ -64,7 +64,7 @@ export default function Navbar() {
         {menuOpen && (
           <div className="lg:hidden flex flex-col space-y-4 pb-4">
             <Link href="/meal-plan" className="text-gray-700 hover:text-green-500">
-              meal Plans
+              Meal Plans
             </Link>
             <Link href="/how-it-works" className="text-gray-700 hover:text-green-500">
               How it works

@@ -7,7 +7,7 @@ const GetStarted = () => {
     <section className="text-center py-16">
       <div className="container mx-auto">
         <div className="flex justify-center mb-4">
-          <Image src="/images/icons/logo.png" alt="Logo" width={600} height={600} />
+          <Image src="/images/icons/logo.png" alt="Logo" width={350} height={350} />
         </div>
         <h1 className="text-2xl md:text-3xl font-bold text-gray-900">
           Transform your everyday meals with a personalized
