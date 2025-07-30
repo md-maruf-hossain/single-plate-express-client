@@ -51,7 +51,7 @@ const Page = () => {
       });
 
       // Send request
-      const res = await fetch("https://single-plate-express-backend.vercel.app/mealPlans", {
+      const res = await fetch("https://single-plate-express-backend.vercel.app/meal-plans", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
