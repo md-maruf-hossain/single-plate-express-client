@@ -124,58 +124,68 @@ const Page = () => {
                 </Link>
               </div>
             ) : (
-              <div className="flex flex-col md:flex-row gap-8">
-                {/* Cart Items */}
-                <div className="bg-white rounded-xl shadow-md flex-1 p-6">
-                  <div className="flex justify-between items-center mb-6">
-                    <h2 className="text-2xl font-semibold">Shopping Cart ({cartItems.length} Items)</h2>
-                    <button onClick={() => window.location.reload()} className="text-sm text-gray-500 hover:text-gray-700 cursor-pointer flex items-center">
-                      <FaRedoAlt />
-                      <span className="pl-1">Refresh Cart</span>
-                    </button>
+              <>
+                <p className="text-center text-red-600 text-2xl mb-5">Kindly Select Minimum 4 Meals to Confirm Order</p>
+                <div className="flex flex-col md:flex-row gap-8">
+                  {/* Cart Items */}
+                  <div className="bg-white rounded-xl shadow-md flex-1 p-6">
+                    <div className="flex justify-between items-center mb-6">
+                      <h2 className="text-xl font-semibold text-green-600">Shopping Cart ({cartItems.length} Items)</h2>
+                      <button onClick={() => window.location.reload()} className="text-sm text-gray-500 hover:text-gray-700 cursor-pointer flex items-center">
+                        <FaRedoAlt className="text-green-600" />
+                        <span className="pl-1 text-green-600">Refresh Cart</span>
+                      </button>
+                    </div>
+
+                    {cartItems.map((item) => (
+                      <div key={item._id} className="flex items-center justify-between py-4 border-b">
+                        <div className="flex-1">
+                          <h3 className="font-semibold text-lg">{item.meal.name}</h3>
+                          <p className="text-sm text-gray-500 mt-1">{item.mealPlanTitle}</p>
+                          <div className="mt-2 text-sm text-gray-400">Includes: {item.meal.dishes.join(", ")}</div>
+                          <button onClick={() => handleDeleteItemFromCart(item)} className="text-red-500 text-sm mt-2 hover:underline cursor-pointer">
+                            Remove Item
+                          </button>
+                        </div>
+                        <div className="ml-4 text-right">
+                          <p className="text-lg font-semibold">{item.mealPlanPrice}</p>
+                        </div>
+                      </div>
+                    ))}
+
+                    <div className="mt-6">
+                      <Link href="/meal-plan/order-catalogue" className="hover:underline text-green-600">
+                        ← Continue Shopping
+                      </Link>
+                    </div>
                   </div>
 
-                  {cartItems.map((item) => (
-                    <div key={item._id} className="flex items-center justify-between py-4 border-b">
-                      <div className="flex-1">
-                        <h3 className="font-semibold text-lg">{item.meal.name}</h3>
-                        <p className="text-sm text-gray-500 mt-1">{item.mealPlanTitle}</p>
-                        <div className="mt-2 text-sm text-gray-400">Includes: {item.meal.dishes.join(", ")}</div>
-                        <button onClick={() => handleDeleteItemFromCart(item)} className="text-red-500 text-sm mt-2 hover:underline cursor-pointer">
-                          Remove Item
-                        </button>
+                  {/* Order Summary */}
+                  <div className="bg-white rounded-xl shadow-md w-full md:w-96 p-6 h-fit sticky top-6">
+                    <h2 className="text-2xl text-green-600 font-semibold mb-6">Order Summary</h2>
+                    <div className="space-y-4">
+                      <div className="flex justify-between">
+                        <span>Subtotal ({cartItems.length} items)</span>
+                        <span>${getTotalCost()}</span>
                       </div>
-                      <div className="ml-4 text-right">
-                        <p className="text-lg font-semibold">{item.mealPlanPrice}</p>
+                      <div className="flex justify-between border-t pt-4">
+                        <span className="font-semibold">Total</span>
+                        <span className="font-semibold">${getTotalCost()}</span>
                       </div>
                     </div>
-                  ))}
-
-                  <div className="mt-6">
-                    <Link href="/meal-plan" className="font-bold hover:underline">
-                      ← Continue Shopping
+                    <Link href="/dashboard/checkout" className="w-full ">
+                      <button
+                        disabled={cartItems?.length < 4}
+                        className={`w-full p-3 rounded-lg mt-6 text-white font-medium ${
+                          cartItems?.length >= 4 ? "bg-green-600 hover:bg-green-700 cursor-pointer" : "bg-gray-400 cursor-not-allowed"
+                        } transition`}
+                      >
+                        {cartItems?.length >= 4 ? "Review payment and address" : "Add more items"}
+                      </button>
                     </Link>
                   </div>
                 </div>
-
-                {/* Order Summary */}
-                <div className="bg-white rounded-xl shadow-md w-full md:w-96 p-6 h-fit sticky top-6">
-                  <h2 className="text-2xl font-semibold mb-6">Order Summary</h2>
-                  <div className="space-y-4">
-                    <div className="flex justify-between">
-                      <span>Subtotal ({cartItems.length} items)</span>
-                      <span>${getTotalCost()}</span>
-                    </div>
-                    <div className="flex justify-between border-t pt-4">
-                      <span className="font-semibold">Total</span>
-                      <span className="font-semibold">${getTotalCost()}</span>
-                    </div>
-                  </div>
-                  <Link href="/dashboard/checkout" className="w-full">
-                    <button className="w-full bg-black cursor-pointer text-white p-3 rounded-lg mt-6">Review payment and address</button>
-                  </Link>
-                </div>
-              </div>
+              </>
             )}
           </div>
           <UpButton />

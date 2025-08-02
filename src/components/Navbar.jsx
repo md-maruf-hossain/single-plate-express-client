@@ -23,7 +23,7 @@ export default function Navbar() {
         {/* NAVBAR MAIN WRAPPER */}
         <div className="flex items-center justify-between lg:justify-between py-4 relative">
           {/* LEFT - HAMBURGER FOR MOBILE */}
-          <button className="lg:hidden text-gray-700 focus:outline-none cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="lg:hidden text-gray-700 text-2xl font-black focus:outline-none cursor-pointer" onClick={() => setMenuOpen(!menuOpen)}>
             ☰
           </button>
 

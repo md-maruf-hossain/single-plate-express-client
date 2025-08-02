@@ -22,7 +22,7 @@ export default function RegisterPage() {
     state: "",
     zip: "",
     phone: "",
-    role: "user",
+    role: "User",
   });
 
   const { createUser, updateUserProfile, loading } = useContext(AuthContext);

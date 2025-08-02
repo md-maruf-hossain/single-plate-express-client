@@ -32,7 +32,7 @@ const UpButton = () => {
   return (
     <>
       {showButton && (
-        <button onClick={scrollToTop} className="fixed bottom-4 right-4 p-4 bg-black text-white rounded-full shadow-lg hover:bg-gray-800 focus:outline-none cursor-pointer">
+        <button onClick={scrollToTop} className="fixed bottom-4 right-4 p-4 bg-green-600 text-white rounded-full shadow-lg hover:bg-green-700 focus:outline-none cursor-pointer">
           <FaChevronUp size={24} />
         </button>
       )}
