@@ -15,7 +15,7 @@
     "antd": "^5.24.3",
     "firebase": "^11.9.1",
     "mongodb": "^6.15.0",
-    "next": "15.2.2",
+    "next": "^15.5.7",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.55.0",
