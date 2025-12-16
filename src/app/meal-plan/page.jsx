@@ -80,7 +80,9 @@ const page = () => {
             </button>
           </div>
         </div>
-          <p className="text-center font-semibold mt-5 text-green-600">We are currently offering our catering service exclusively in the Queens area. <br/> Our service will be expanding to other areas soon. Thank you for your interest and patience!</p>
+        <p className="text-center font-semibold mt-5 text-green-600">
+          We are currently offering our catering service exclusively in the Queens area. <br /> Our service will be expanding to other areas soon. Thank you for your interest and patience!
+        </p>
       </div>
       <UpButton />
     </PrivateRoute>

@@ -103,6 +103,13 @@ const Page = () => {
     return total.toFixed(2);
   };
 
+  // New: Calculate total meals across all bundles
+  const getTotalMeals = () => {
+    return cartItems.reduce((acc, item) => {
+      return acc + (item.mealsSelectedCount || 0); // Sum mealsSelectedCount for bundles
+    }, 0);
+  };
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -110,6 +117,8 @@ const Page = () => {
       </div>
     );
   }
+
+  const totalMeals = getTotalMeals();
 
   return (
     <PrivateRoute>
@@ -125,12 +134,11 @@ const Page = () => {
               </div>
             ) : (
               <>
-                <p className="text-center text-red-600 text-2xl mb-5">Kindly Select Minimum 4 Meals to Confirm Order</p>
                 <div className="flex flex-col md:flex-row gap-8">
                   {/* Cart Items */}
                   <div className="bg-white rounded-xl shadow-md flex-1 p-6">
                     <div className="flex justify-between items-center mb-6">
-                      <h2 className="text-xl font-semibold text-green-600">Shopping Cart ({cartItems.length} Items)</h2>
+                      <h2 className="text-xl font-semibold text-green-600">Shopping Cart ({cartItems.length} Orders)</h2>
                       <button onClick={() => window.location.reload()} className="text-sm text-gray-500 hover:text-gray-700 cursor-pointer flex items-center">
                         <FaRedoAlt className="text-green-600" />
                         <span className="pl-1 text-green-600">Refresh Cart</span>
@@ -138,11 +146,32 @@ const Page = () => {
                     </div>
 
                     {cartItems.map((item) => (
-                      <div key={item._id} className="flex items-center justify-between py-4 border-b">
+                      <div key={item._id} className="flex items-start justify-between py-4 border-b">
                         <div className="flex-1">
-                          <h3 className="font-semibold text-lg">{item.meal.name}</h3>
-                          <p className="text-sm text-gray-500 mt-1">{item.mealPlanTitle}</p>
-                          <div className="mt-2 text-sm text-gray-400">Includes: {item.meal.dishes.join(", ")}</div>
+                          {item.isBundle ? (
+                            // Render bundled plan
+                            <>
+                              <h3 className="font-semibold text-lg">{item.mealPlanTitle}</h3>
+                              <p className="text-sm text-gray-500 mt-1">Plan for {item.mealsSelectedCount} Meals</p>
+                              <div className="mt-2 text-sm text-gray-400">
+                                <strong className="text-green-600">Selected Meals:</strong>
+                                <ul className="list-disc list-inside mt-1 text-black">
+                                  {item.selectedMeals.map((meal, index) => (
+                                    <li key={index}>
+                                      {meal.quantity}× {meal.name} ({meal.type})
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            </>
+                          ) : (
+                            // Fallback for single meals (backward compatibility)
+                            <>
+                              <h3 className="font-semibold text-lg">{item.meal.name}</h3>
+                              <p className="text-sm text-gray-500 mt-1">{item.mealPlanTitle}</p>
+                              <div className="mt-2 text-sm text-gray-400">Includes: {item.meal.dishes.join(", ")}</div>
+                            </>
+                          )}
                           <button onClick={() => handleDeleteItemFromCart(item)} className="text-red-500 text-sm mt-2 hover:underline cursor-pointer">
                             Remove Item
                           </button>
@@ -175,12 +204,12 @@ const Page = () => {
                     </div>
                     <Link href="/dashboard/checkout" className="w-full ">
                       <button
-                        disabled={cartItems?.length < 4}
+                        disabled={totalMeals < 4} // Updated: Check total meals >= 4
                         className={`w-full p-3 rounded-lg mt-6 text-white font-medium ${
-                          cartItems?.length >= 4 ? "bg-green-600 hover:bg-green-700 cursor-pointer" : "bg-gray-400 cursor-not-allowed"
+                          totalMeals >= 4 ? "bg-green-600 hover:bg-green-700 cursor-pointer" : "bg-gray-400 cursor-not-allowed"
                         } transition`}
                       >
-                        {cartItems?.length >= 4 ? "Review payment and address" : "Add more items"}
+                        {totalMeals >= 4 ? "Review payment and address" : "Add more items"}
                       </button>
                     </Link>
                   </div>
